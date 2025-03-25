@@ -4,6 +4,7 @@ public class Submission {
     private int attemptNum;
     private File[] files;
     private int numFiles;
+    private SampleValidator sampleValidator = new SampleValidator();
 
     public Submission(int attemptNum, File[] files, int numFiles) {
         this.attemptNum = attemptNum;
@@ -40,5 +41,9 @@ public class Submission {
 
     public void setFiles(File[] files) {
         this.files = files;
+    }
+
+    public boolean isvalidate() {
+        return sampleValidator.validateSubmission(this) != null;
     }
 }
